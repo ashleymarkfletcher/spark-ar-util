@@ -37,8 +37,8 @@ export const getChildren = (parent, childName, numChildren) => {
 }
 
 // basic 2d distance collision
-export const collision = function(x1, y1, x2, y2, distanceX, distanceY) {
-  return Math.hypot(x2 - x1, y2 - y1) <= distanceX
+export const collision = function(x1, y1, x2, y2, distance) {
+  return Math.hypot(x2 - x1, y2 - y1) <= distance
 }
 
 // countdown from a number and trigger a function
