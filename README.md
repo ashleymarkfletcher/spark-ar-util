@@ -1,4 +1,4 @@
-# spark-ar-util
+# Spark AR Util
 A collection of utility functions for Spark AR projects.
 
 This is still a work in progress and might change quite a lot. 
