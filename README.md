@@ -10,6 +10,7 @@ If you would like to contribute just open a PR or issue :)
 - [ ] Add tests
 - [ ] Split functions into modules
 - [ ] Add basic shader methods
-- [ ] publish on NPM
+- [ ] Publish on NPM
+- [ ] Document functions
 
 
