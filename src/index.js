@@ -47,7 +47,6 @@ export const collision = function(x1, y1, x2, y2, distance) {
   return Math.hypot(x2 - x1, y2 - y1) <= distance
 }
 
-// check all the food for a collision
 export const checkCollisions = (objects, colliderX, colliderY, onCollision) => {
   objects.forEach(o => {
     const oX = o.element.transform.x.pinLastValue()
