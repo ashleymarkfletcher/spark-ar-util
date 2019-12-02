@@ -94,6 +94,7 @@ export const swapSceneObjectTexture = (sceneObject, texture) => {
   const material = sceneObject.material
   material.diffuse = texture
 }
+
 // same as above but with an array of texures to choose from
 export const randomTexture = (textures, material) => swapMaterialTexture(material, randomElement(textures))
 
@@ -122,6 +123,20 @@ export const tween = (sampler, from, to, driverParams, onComplete) => {
 export const opacityTween = (material, from, to, params, onComplete) => {
   const anim = tween('linear', from, to, params, onComplete)
   material.opacity = anim.signal
+  return anim
+}
+
+export const uvScroll = (material, offsetU, offsetV, driverParameters, onComplete) => {
+  const driverParams = {
+    ...{ durationMilliseconds: 2000, loopCount: Infinity, mirror: false },
+    ...driverParameters
+  }
+
+  const anim = tween('linear', 0, 1, driverParams, onComplete)
+
+  if (offsetU) material.diffuseTextureTransform.offsetU
+  if (offsetV) material.diffuseTextureTransform.offsetV
+
   return anim
 }
 
