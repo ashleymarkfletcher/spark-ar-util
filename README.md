@@ -7,9 +7,9 @@ If you would like to contribute just open a PR or issue :)
 
 ## TODO
 - [x] Get initial functions committed
-- [] Add tests
-- [] Split functions into modules
-- [] Add basic shader methods
-- [] publish on NPM
+- [ ] Add tests
+- [ ] Split functions into modules
+- [ ] Add basic shader methods
+- [ ] publish on NPM
 
 
