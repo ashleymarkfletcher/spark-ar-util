@@ -33,13 +33,28 @@ export const updateText = (element, text) => {
 
 export const tapRegistrar = (element, fn) => TouchGestures.onTap(element).subscribe(fn)
 
-export const getChildren = (parent, childName, numChildren) => {
-  let children = []
-  for (let index = 0; index < numChildren; index++) {
-    children.push(parent.child(childName + index))
-  }
+//
+// Get a set of duplicated elements as an array.
+// parent should be the parent scene item containing the children
+// childPrefix is the prefix for the element set: 
+// e.g. for "plane0" the childPrefix is "plane".
+//
+export const getChildren = (parent, childPrefix) => {
+  let children = [];
+  let i = 0;
+  let hasMatch = true;
 
-  return children
+  do {
+    try {
+      children.push(parent.child(childPrefix + i));
+      i++;
+    } catch(err) {
+      hasMatch = false;
+    }
+  }
+  while (hasMatch);
+
+  return children;
 }
 
 // basic 2d distance collision
