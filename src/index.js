@@ -36,25 +36,24 @@ export const tapRegistrar = (element, fn) => TouchGestures.onTap(element).subscr
 //
 // Get a set of duplicated elements as an array.
 // parent should be the parent scene item containing the children
-// childPrefix is the prefix for the element set: 
+// childPrefix is the prefix for the element set:
 // e.g. for "plane0" the childPrefix is "plane".
 //
 export const getChildren = (parent, childPrefix) => {
-  let children = [];
-  let i = 0;
-  let hasMatch = true;
+  let children = []
+  let i = 0
+  let hasMatch = true
 
   do {
     try {
-      children.push(parent.child(childPrefix + i));
-      i++;
-    } catch(err) {
-      hasMatch = false;
+      children.push(parent.child(childPrefix + i))
+      i++
+    } catch (err) {
+      hasMatch = false
     }
-  }
-  while (hasMatch);
+  } while (hasMatch)
 
-  return children;
+  return children
 }
 
 // basic 2d distance collision
@@ -208,27 +207,27 @@ export const padWithZeros = (num, length) => {
 }
 
 //
-// Creates a throttled function that only invokes the provided 
+// Creates a throttled function that only invokes the provided
 // function at most once per every wait milliseconds
-// Inspired by: https://www.30secondsofcode.org/js/s/throttle 
+// Inspired by: https://www.30secondsofcode.org/js/s/throttle
 //
 export const throttle = (fn, wait) => {
-  let inThrottle, lastFn, lastTime;
+  let inThrottle, lastFn, lastTime
   return function() {
     const context = this,
-      args = arguments;
+      args = arguments
     if (!inThrottle) {
-      fn.apply(context, args);
-      lastTime = Date.now();
-      inThrottle = true;
+      fn.apply(context, args)
+      lastTime = Date.now()
+      inThrottle = true
     } else {
-      lastFn && Time.clearTimeout(lastFn);
+      lastFn && Time.clearTimeout(lastFn)
       lastFn = Time.setTimeout(function() {
         if (Date.now() - lastTime >= wait) {
-          fn.apply(context, args);
-          lastTime = Date.now();
+          fn.apply(context, args)
+          lastTime = Date.now()
         }
-      }, Math.max(wait - (Date.now() - lastTime), 0));
+      }, Math.max(wait - (Date.now() - lastTime), 0))
     }
-  };
-};
+  }
+}
