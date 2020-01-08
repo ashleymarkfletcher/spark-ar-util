@@ -101,7 +101,7 @@ export const randomTexture = (textures, material) => swapMaterialTexture(materia
 export const randomizeTextures = (objArray, textures) =>
   objArray.forEach(obj => randomTexture(textures, obj.element.material))
 
-export const tween = (sampler, from, to, driverParams, onComplete) => {
+export const tween = (sampler, from, to, params, onComplete) => {
   const driverParamsDefault = {
     durationMilliseconds: 1000,
     loopCount: 1, // can be Infinity
@@ -162,8 +162,8 @@ export const axisRotation = (axis_x, axis_y, axis_z, angle_degrees) => {
   return Reactive.rotation(cos, axis_x * sin, axis_y * sin, axis_z * sin)
 }
 
-export const rotateTween = (element, driverParams, sampler, from, to, axisArray) => {
-  const anim = tween(driverParams, sampler, from, to)
+export const rotateTween = (element, driverParams, sampler, from, to, axisArray, onComplete) => {
+  const anim = tween(sampler, from, to, driverParams, onComplete)
 
   axisArray.forEach(axis => (element.transform['rotation' + axis.toUpperCase()] = anim.signal))
 }
