@@ -10,7 +10,7 @@ const Materials = require('Materials')
 const CameraInfo = require('CameraInfo')
 
 export const randomNumber = (lower, upper) => Math.floor(Math.random() * upper) + lower
-export const randomElement = elements => elements[randomNum(0, elements.length)]
+export const randomElement = elements => elements[randomNumber(0, elements.length)]
 export const randomFloat = (lower, upper) => Math.random() * upper + lower
 export const randomNegativePostiive = num => {
   num *= Math.floor(Math.random() * 2) == 1 ? 1 : -1
